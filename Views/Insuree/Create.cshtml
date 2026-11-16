@@ -1,0 +1,9 @@
+@model Insuree
+@{ ViewData["Title"] = "Get a quote"; }
+<p class="eyebrow">YOUR NEXT JOURNEY</p><h1>Get your monthly quote</h1>
+<p>Enter your details below. Your quote is calculated when you submit.</p>
+@* The form posts applicant data only; the server determines the premium. *@
+<form asp-action="Create" method="post">
+    <partial name="_InsureeFields" model="Model" />
+    <button type="submit">Calculate my quote</button> <a asp-action="Index">Cancel</a>
+</form>
