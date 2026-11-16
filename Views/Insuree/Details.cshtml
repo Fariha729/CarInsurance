@@ -1,0 +1,6 @@
+@model Insuree
+@{ ViewData["Title"] = "Quote details"; }
+<p class="eyebrow">YOUR ESTIMATE</p><h1>Quote for @Model.FirstName @Model.LastName</h1>
+<section class="quote"><span>Monthly premium</span><strong>@Model.Quote.ToString("C2", CultureInfo.GetCultureInfo("en-US"))</strong></section>
+<dl><dt>Email</dt><dd>@Model.EmailAddress</dd><dt>Date of birth</dt><dd>@Model.DateOfBirth.ToString("yyyy-MM-dd")</dd><dt>Vehicle</dt><dd>@Model.CarYear @Model.CarMake @Model.CarModel</dd><dt>Speeding tickets</dt><dd>@Model.SpeedingTickets</dd><dt>DUI</dt><dd>@(Model.DUI ? "Yes" : "No")</dd><dt>Coverage</dt><dd>@(Model.CoverageType ? "Full coverage" : "Liability")</dd></dl>
+<a class="button" asp-action="Edit" asp-route-id="@Model.Id">Edit details</a> <a asp-action="Index">Back to list</a>
