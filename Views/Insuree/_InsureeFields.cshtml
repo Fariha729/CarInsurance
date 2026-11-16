@@ -1,0 +1,19 @@
+@model Insuree
+@* Reuse applicant fields in Create and Edit. Quote is deliberately absent. *@
+<div asp-validation-summary="All" class="validation" role="alert"></div>
+<fieldset><legend>Your details</legend><div class="grid">
+    <div><label asp-for="FirstName"></label><input asp-for="FirstName" autocomplete="given-name" required maxlength="60" /></div>
+    <div><label asp-for="LastName"></label><input asp-for="LastName" autocomplete="family-name" required maxlength="60" /></div>
+    <div><label asp-for="EmailAddress"></label><input asp-for="EmailAddress" type="email" autocomplete="email" required /></div>
+    <div><label asp-for="DateOfBirth"></label><input asp-for="DateOfBirth" type="date" value="@(Model.DateOfBirth == default ? "" : Model.DateOfBirth.ToString("yyyy-MM-dd"))" required /></div>
+</div></fieldset>
+<fieldset><legend>Your vehicle</legend><div class="grid">
+    <div><label asp-for="CarYear"></label><input asp-for="CarYear" min="1886" max="@(DateTime.Today.Year + 1)" required /></div>
+    <div><label asp-for="CarMake"></label><input asp-for="CarMake" required maxlength="60" /></div>
+    <div><label asp-for="CarModel"></label><input asp-for="CarModel" required maxlength="80" /></div>
+</div></fieldset>
+<fieldset><legend>Driving history and coverage</legend><div class="grid">
+    <div><label asp-for="SpeedingTickets"></label><input asp-for="SpeedingTickets" min="0" max="1000" required /></div>
+    <div class="check"><input asp-for="DUI" /><label asp-for="DUI"></label></div>
+    <div class="check"><input asp-for="CoverageType" /><label asp-for="CoverageType"></label></div>
+</div></fieldset>
