@@ -1,0 +1,4 @@
+@model Insuree
+@{ ViewData["Title"] = "Delete insuree"; }
+<h1>Delete this insuree?</h1><p>This will remove the record and quote for @Model.FirstName @Model.LastName.</p>
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post"><button type="submit">Delete record</button> <a asp-action="Index">Cancel</a></form>
