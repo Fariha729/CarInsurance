@@ -1,0 +1,7 @@
+@model Insuree
+@{ ViewData["Title"] = "Edit insuree"; }
+<h1>Edit insuree</h1><p>Saving changes recalculates the monthly quote.</p>
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <partial name="_InsureeFields" model="Model" />
+    <button type="submit">Save and recalculate</button> <a asp-action="Details" asp-route-id="@Model.Id">Cancel</a>
+</form>
