@@ -1,0 +1,10 @@
+@model IEnumerable<Insuree>
+@{ ViewData["Title"] = "Admin — issued quotes"; }
+<p class="eyebrow">ADMIN</p><h1>All issued quotes</h1><p>@Model.Count() quote(s) on record.</p>
+@* Display every saved quote with the four fields required by Part 3. *@
+<div class="table-wrap"><table><thead><tr><th>First name</th><th>Last name</th><th>Email address</th><th>Monthly quote</th></tr></thead><tbody>
+@foreach (var item in Model) {
+<tr><td>@item.FirstName</td><td>@item.LastName</td><td>@item.EmailAddress</td><td>@item.Quote.ToString("C2", CultureInfo.GetCultureInfo("en-US"))</td></tr>
+}
+@if (!Model.Any()) { <tr><td colspan="4">No quotes have been issued yet.</td></tr> }
+</tbody></table></div>
