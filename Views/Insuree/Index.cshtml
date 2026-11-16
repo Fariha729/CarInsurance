@@ -1,0 +1,12 @@
+@model IEnumerable<Insuree>
+@{ ViewData["Title"] = "Insurees"; }
+<p class="eyebrow">CAR INSURANCE</p><h1>Insurees and quotes</h1>
+<p><a class="button" asp-action="Create">Create a new quote</a></p>
+@if (!Model.Any()) { <section class="empty"><h2>No quotes yet</h2><p>Create your first quote to get started.</p></section> }
+else {
+<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vehicle</th><th>Monthly quote</th><th>Actions</th></tr></thead><tbody>
+@foreach (var item in Model) {
+<tr><td>@item.FirstName @item.LastName</td><td>@item.CarYear @item.CarMake @item.CarModel</td><td>@item.Quote.ToString("C2", CultureInfo.GetCultureInfo("en-US"))</td><td><a asp-action="Details" asp-route-id="@item.Id">Details</a> · <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> · <a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td></tr>
+}
+</tbody></table></div>
+}
