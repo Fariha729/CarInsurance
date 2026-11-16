@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] | Car Insurance</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header><nav aria-label="Main navigation"><a class="brand" asp-controller="Insuree" asp-action="Index">Car Insurance</a><a asp-controller="Insuree" asp-action="Create">New quote</a><a asp-controller="Insuree" asp-action="Admin">Admin</a></nav></header>
+    <main>@RenderBody()</main>
+    <footer>Car Insurance · ASP.NET Core MVC coursework</footer>
+</body>
+</html>
